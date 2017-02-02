@@ -152,7 +152,7 @@ public class TicTacForm2 extends javax.swing.JFrame {
         }
         
         else if (player == 1){
-            //set tile to X icon
+            //Change button icon to X.
         }
         else if (player == 2){
             //call COM sub
@@ -165,7 +165,18 @@ public class TicTacForm2 extends javax.swing.JFrame {
     }//GEN-LAST:event_Tile11ActionPerformed
 
     public void COM (int[][] board){
-        
+        //Study board array input,
+            //COM winning move, take it
+            //opponant winning move, block it.
+            //creates fork after move
+            //block opponent forks
+            /*count winning possibilities for each possibility.  
+            move with highest score is the next move. */
+        //make move in array.
+            //get button id for the button coords (subroutine)
+        //change the icon to NAUGHT.
+        //pass the baton.
+        player = 1;
     }
     
     public static void main(String args[]) {
