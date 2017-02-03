@@ -3,16 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tictactoe;
+package tiktak;
+
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author reprise
  */
-public class TicTacForm2 extends javax.swing.JFrame {
+public class TikTakForm extends javax.swing.JFrame {
 
 
-  public TicTacForm2() {
+  public TikTakForm() {
         initComponents();
   }
 
@@ -40,7 +42,7 @@ public class TicTacForm2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tictactoe/images/BoardSticker.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tiktak/images/BoardSticker.png"))); // NOI18N
 
         Tile11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -48,7 +50,54 @@ public class TicTacForm2 extends javax.swing.JFrame {
             }
         });
 
+        Tile12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tile12ActionPerformed(evt);
+            }
+        });
+
+        Tile13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tile13ActionPerformed(evt);
+            }
+        });
+
         Tile21.setToolTipText("");
+        Tile21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tile21ActionPerformed(evt);
+            }
+        });
+
+        Tile22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tile22ActionPerformed(evt);
+            }
+        });
+
+        Tile23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tile23ActionPerformed(evt);
+            }
+        });
+
+        Tile31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tile31ActionPerformed(evt);
+            }
+        });
+
+        Tile32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tile32ActionPerformed(evt);
+            }
+        });
+
+        Tile33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tile33ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout boardPanelLayout = new javax.swing.GroupLayout(boardPanel);
         boardPanel.setLayout(boardPanelLayout);
@@ -97,14 +146,17 @@ public class TicTacForm2 extends javax.swing.JFrame {
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
+        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(boardPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 448, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(23, 23, 23)
@@ -114,7 +166,7 @@ public class TicTacForm2 extends javax.swing.JFrame {
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,8 +175,6 @@ public class TicTacForm2 extends javax.swing.JFrame {
                     .addComponent(boardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(boardPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,6 +196,7 @@ public class TicTacForm2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Tile 1,1 | ID 1
     private void Tile11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tile11ActionPerformed
         if (player == 0){
             player = 1;
@@ -158,12 +209,50 @@ public class TicTacForm2 extends javax.swing.JFrame {
             //call COM sub
                 //calculate move.
                 //set tile to naught icon.
-        }
-        
-        
-        
+        }    
     }//GEN-LAST:event_Tile11ActionPerformed
 
+    //Tile 1,2 | ID 2
+    private void Tile12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tile12ActionPerformed
+
+    }//GEN-LAST:event_Tile12ActionPerformed
+
+    //Tile 1,3 | ID 3
+    private void Tile13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tile13ActionPerformed
+
+    }//GEN-LAST:event_Tile13ActionPerformed
+
+    //Tile 2,1 | ID 4
+    private void Tile21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tile21ActionPerformed
+
+    }//GEN-LAST:event_Tile21ActionPerformed
+
+    //Tile 2,2 | ID 5
+    private void Tile22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tile22ActionPerformed
+
+    }//GEN-LAST:event_Tile22ActionPerformed
+
+    //Tile 2,3 | ID 6
+    private void Tile23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tile23ActionPerformed
+
+    }//GEN-LAST:event_Tile23ActionPerformed
+
+    //Tile 3,1 | ID 7
+    private void Tile31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tile31ActionPerformed
+
+    }//GEN-LAST:event_Tile31ActionPerformed
+
+    //Tile 3,2 | ID 8
+    private void Tile32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tile32ActionPerformed
+
+    }//GEN-LAST:event_Tile32ActionPerformed
+
+    //Tile 3,1 | ID 9
+    private void Tile33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tile33ActionPerformed
+
+    }//GEN-LAST:event_Tile33ActionPerformed
+
+    //the logic to the computer player, player 2, who plays Noughts.
     public void COM (int[][] board){
         //Study board array input,
             //COM winning move, take it
@@ -179,6 +268,7 @@ public class TicTacForm2 extends javax.swing.JFrame {
         player = 1;
     }
     
+    //
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
     //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -193,20 +283,21 @@ public class TicTacForm2 extends javax.swing.JFrame {
         }
       }
     } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(TicTacForm2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(TikTakForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(TicTacForm2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(TikTakForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(TicTacForm2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(TikTakForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(TicTacForm2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      java.util.logging.Logger.getLogger(TikTakForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    //</editor-fold>
     //</editor-fold>
 
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
         public void run() {
-            new TicTacForm2().setVisible(true);
+            new TikTakForm().setVisible(true);
         }
     });
   }
@@ -227,13 +318,14 @@ public class TicTacForm2 extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //GLOBALS
-    int player = 0;         //1=Human 2=COM
-    char[][] board = {
+    int player = 0;                     //1=Human 2=COM
+    char[][] board = {                  //The Game Board as a multidim array.
         {'#','#'},{'#','#'},{'#','#'},
         {'#','#'},{'#','#'},{'#','#'},
         {'#','#'},{'#','#'},{'#','#'}
     };
     
-
-
+    ImageIcon cross     = new javax.swing.ImageIcon(getClass().getResource("/tiktak/images/cross.png"));
+    ImageIcon nought    = new javax.swing.ImageIcon(getClass().getResource("/tiktak/images/nought.png"));
+    
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tictactoe;
+package tiktak;
 
 /**
  *
@@ -15,7 +15,7 @@ public class main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        TicTacForm2 form1 = new TicTacForm2();
+        TikTakForm form1 = new TikTakForm();
         form1.setVisible(true);
     }
     
