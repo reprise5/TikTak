@@ -284,7 +284,11 @@ public class TikTakForm extends javax.swing.JFrame {
             changeIcon(ID, 1);
         }
         tile11.setEnabled(false);
+        updateBoard(ID);
         nextPlayer();
+        
+        com.showBoard();
+        
     }//GEN-LAST:event_tile11ActionPerformed
 
     //Tile 1,2 | ID 2
@@ -298,7 +302,9 @@ public class TikTakForm extends javax.swing.JFrame {
             changeIcon(ID, 1);
         }
         tile12.setEnabled(false);
+        updateBoard(ID);
         nextPlayer();
+        
     }//GEN-LAST:event_tile12ActionPerformed
 
     //Tile 1,3 | ID 3
@@ -312,6 +318,7 @@ public class TikTakForm extends javax.swing.JFrame {
             changeIcon(ID, 1);
         }
         tile13.setEnabled(false);
+        updateBoard(ID);
         nextPlayer();
     }//GEN-LAST:event_tile13ActionPerformed
 
@@ -326,6 +333,7 @@ public class TikTakForm extends javax.swing.JFrame {
             changeIcon(ID, 1);
         }
         tile21.setEnabled(false);
+        updateBoard(ID);
         nextPlayer();
     }//GEN-LAST:event_tile21ActionPerformed
 
@@ -340,6 +348,7 @@ public class TikTakForm extends javax.swing.JFrame {
             changeIcon(ID, 1);
         }
         tile22.setEnabled(false);
+        updateBoard(ID);
         nextPlayer();
     }//GEN-LAST:event_tile22ActionPerformed
 
@@ -354,6 +363,7 @@ public class TikTakForm extends javax.swing.JFrame {
             changeIcon(ID, 1);
         }
         tile23.setEnabled(false);
+        updateBoard(ID);
         nextPlayer();
     }//GEN-LAST:event_tile23ActionPerformed
 
@@ -368,6 +378,7 @@ public class TikTakForm extends javax.swing.JFrame {
             changeIcon(ID, 1);
         }
         tile31.setEnabled(false);
+        updateBoard(ID);
         nextPlayer();
     }//GEN-LAST:event_tile31ActionPerformed
 
@@ -382,6 +393,7 @@ public class TikTakForm extends javax.swing.JFrame {
             changeIcon(ID, 1);
         }
         tile32.setEnabled(false);
+        updateBoard(ID);
         nextPlayer();
     }//GEN-LAST:event_tile32ActionPerformed
 
@@ -396,12 +408,14 @@ public class TikTakForm extends javax.swing.JFrame {
             changeIcon(ID, 1);
         }
         tile33.setEnabled(false);
+        updateBoard(ID);
         nextPlayer();
     }//GEN-LAST:event_tile33ActionPerformed
 
     //Clear the board to play again.  leave the scores alone.
     private void resetBoardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetBoardButtonActionPerformed
 
+        //re-enable
         tile11.setEnabled(true);
         tile12.setEnabled(true);
         tile13.setEnabled(true);
@@ -412,6 +426,7 @@ public class TikTakForm extends javax.swing.JFrame {
         tile32.setEnabled(true);
         tile33.setEnabled(true);
         
+        //clear icons
         tile11.setIcon(null);
         tile12.setIcon(null);
         tile13.setIcon(null);
@@ -422,8 +437,21 @@ public class TikTakForm extends javax.swing.JFrame {
         tile32.setIcon(null);
         tile33.setIcon(null);
         
+        //reset back to player 1's turn
         player = 0;
         informationLabel.setText("YOUR TURN");
+        
+        //clear board array
+        for (int a = 0; a < board.length; a++){
+            for (int b = 0; b < board.length; b++){
+                board[a][b] = '-';
+            }
+        }
+        
+        for (int b = 0; b < board.length; b++){
+            System.out.println(board[b]);
+        }
+        
     }//GEN-LAST:event_resetBoardButtonActionPerformed
 
     //the logic to the computer player, player 2, who plays Noughts.
@@ -448,7 +476,7 @@ public class TikTakForm extends javax.swing.JFrame {
         pieces.add(cross);      //Player 1's piece  HUMAN
         pieces.add(nought);     //Player 2's piece  COM
         
-        System.out.print("Player: " + player + " at Tile " + ID + ".   ");
+        System.out.println("Player: " + player + " at Tile " + ID + ".   ");
         
         switch(ID){
             case 1:
@@ -490,8 +518,50 @@ public class TikTakForm extends javax.swing.JFrame {
         }
     }
 
+    //the button that was pressed passes it's location, or the COM will notify which button it wants to press.
+    public void updateBoard(int ID){
+        ArrayList<Character> pieces = new ArrayList<Character>();
+        pieces.add('X');
+        pieces.add('O');
+        
+        switch(ID){
+            case 1:
+                board[0][0] = pieces.get(player);
+                break;
+            case 2:
+                board[0][1] = pieces.get(player);
+                break;
+            case 3:        
+                board[0][2] = pieces.get(player);
+                break;
+            case 4:
+                board[1][0] = pieces.get(player);
+                break;
+            case 5:
+                board[1][1] = pieces.get(player);
+                break;
+            case 6:
+                board[1][2] = pieces.get(player);
+                break;
+            case 7:
+                board[2][0] = pieces.get(player);
+                break;
+            case 8:
+                board[2][1] = pieces.get(player);
+                break;
+            case 9:
+                board[2][2] = pieces.get(player);
+                break;     
+        }
+
+        //Print an updated board to console.
+        for (int b = 0; b < board.length; b++){
+            System.out.println(board[b]);
+        }
+    }
+    
     //pass the baton to next player.
-    private void nextPlayer(){
+    public void nextPlayer(){
         if (player == 0){
             player = 1;
             System.out.println("Now it's player " + (player + 1) + "'s turn!");
@@ -503,6 +573,7 @@ public class TikTakForm extends javax.swing.JFrame {
             informationLabel.setText("YOUR TURN");
         }
     }
+    
     
     public static void main(String args[]) {
 
@@ -558,12 +629,13 @@ public class TikTakForm extends javax.swing.JFrame {
     //GLOBALS
     int player = 0;                     //0=Human 1=COM
     char[][] board = {                  //The Game Board as a multidim array.
-        {'#','#'},{'#','#'},{'#','#'},
-        {'#','#'},{'#','#'},{'#','#'},
-        {'#','#'},{'#','#'},{'#','#'}
+        {'-','-','-'},
+        {'-','-','-'},
+        {'-','-','-'}
     };
     
     ImageIcon cross     = new javax.swing.ImageIcon(getClass().getResource("/tiktak/images/cross.png"));
     ImageIcon nought    = new javax.swing.ImageIcon(getClass().getResource("/tiktak/images/nought.png"));
     
+    ComputerPlayer com = new ComputerPlayer(board);
 }
