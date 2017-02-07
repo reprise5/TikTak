@@ -1,7 +1,7 @@
 /*
  *this class Is meant to override the ComTimer class in Java so that the COM player
- * Doesn't make its move imediately.  It creates some delay.  Create an object in
- * the computerPlayer class.
+ * Doesn't make its move imediately.  It creates some delay.
+ * 
  */
 
 package tiktak;

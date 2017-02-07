@@ -462,14 +462,20 @@ public class TikTakForm extends javax.swing.JFrame {
             //change to win-cross.png
             return true;
         }
-        
-        //check for a tie.
+        return false;
+    }
+    
+    //check for a tie game.
+    private boolean checkTie(){
+        boolean tie = false;
+                
         if (board[0][0] != '-' && board[0][1] != '-' && board[0][2] != '-' && 
             board[1][0] != '-' && board[1][1] != '-' && board[1][2] != '-' && 
             board[2][0] != '-' && board[2][1] != '-' && board[2][2] != '-'){
             informationLabel.setText("TIE GAME!");
+            tie = true;
         }
-        return false;
+        return tie;
     }
     
     //Update the internal Board array.
@@ -531,7 +537,7 @@ public class TikTakForm extends javax.swing.JFrame {
                     nextPlayer();
                 }
             }
-            checkWin();
+            checkTie();
         }   
     }
     
