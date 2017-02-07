@@ -5,7 +5,6 @@ import java.util.Arrays;
 import javax.swing.ImageIcon;
 
 /**
- *
  * @author reprise
  */
 public class TikTakForm extends javax.swing.JFrame {
@@ -271,72 +270,54 @@ public class TikTakForm extends javax.swing.JFrame {
     //Tile 1,1 | ID 1
     private void tile11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tile11ActionPerformed
         int ID = 1;
-        
-        tile11.setEnabled(false);
         gameMove(ID);
     }//GEN-LAST:event_tile11ActionPerformed
 
     //Tile 1,2 | ID 2
     private void tile12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tile12ActionPerformed
         int ID = 2;
-        
-        tile12.setEnabled(false);
         gameMove(ID);
     }//GEN-LAST:event_tile12ActionPerformed
 
     //Tile 1,3 | ID 3
     private void tile13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tile13ActionPerformed
         int ID = 3;
-        
-        tile13.setEnabled(false); 
         gameMove(ID);
     }//GEN-LAST:event_tile13ActionPerformed
 
     //Tile 2,1 | ID 4
     private void tile21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tile21ActionPerformed
         int ID = 4;
-        
-        tile21.setEnabled(false);
         gameMove(ID);
     }//GEN-LAST:event_tile21ActionPerformed
 
     //Tile 2,2 | ID 5
     private void tile22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tile22ActionPerformed
         int ID = 5;
-
-        tile22.setEnabled(false);
         gameMove(ID);
     }//GEN-LAST:event_tile22ActionPerformed
 
     //Tile 2,3 | ID 6
     private void tile23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tile23ActionPerformed
         int ID = 6;
-
-        tile23.setEnabled(false);
         gameMove(ID);
     }//GEN-LAST:event_tile23ActionPerformed
 
     //Tile 3,1 | ID 7
     private void tile31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tile31ActionPerformed
         int ID = 7;
-
-        tile31.setEnabled(false);
         gameMove(ID);
     }//GEN-LAST:event_tile31ActionPerformed
 
     //Tile 3,2 | ID 8
     private void tile32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tile32ActionPerformed
         int ID = 8;
-
-        tile32.setEnabled(false);
         gameMove(ID);
     }//GEN-LAST:event_tile32ActionPerformed
 
     //Tile 3,3 | ID 9
     private void tile33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tile33ActionPerformed
         int ID = 9;
-        
-        tile33.setEnabled(false);
         gameMove(ID);
     }//GEN-LAST:event_tile33ActionPerformed
 
@@ -406,44 +387,53 @@ public class TikTakForm extends javax.swing.JFrame {
         pieces.add(cross);      //Player 1's piece  HUMAN
         pieces.add(nought);     //Player 2's piece  COM
         
-        System.out.println("Player: " + player + " at Tile " + ID + ".   ");
+        //System.out.println("Player: " + player + " at Tile " + ID + ".   ");
         
         switch(ID){
             case 1:
                 tile11.setIcon(pieces.get(player));
                 tile11.setDisabledIcon(pieces.get(player));
+                tile11.setEnabled(false);
                 break;
             case 2:
                 tile12.setIcon(pieces.get(player));
                 tile12.setDisabledIcon(pieces.get(player));
+                tile12.setEnabled(false);
                 break;
             case 3:
                 tile13.setIcon(pieces.get(player));
                 tile13.setDisabledIcon(pieces.get(player));
+                tile13.setEnabled(false);
                 break;
             case 4:
                 tile21.setIcon(pieces.get(player));
                 tile21.setDisabledIcon(pieces.get(player));
+                tile21.setEnabled(false);
                 break;
             case 5:
                 tile22.setIcon(pieces.get(player));
                 tile22.setDisabledIcon(pieces.get(player));
+                tile22.setEnabled(false);
                 break;
             case 6:
                 tile23.setIcon(pieces.get(player));
                 tile23.setDisabledIcon(pieces.get(player));
+                tile23.setEnabled(false);
                 break;
             case 7:
                 tile31.setIcon(pieces.get(player));
                 tile31.setDisabledIcon(pieces.get(player));
+                tile31.setEnabled(false);
                 break;
             case 8:
                 tile32.setIcon(pieces.get(player));
                 tile32.setDisabledIcon(pieces.get(player));
+                tile32.setEnabled(false);
                 break;
             case 9:
                 tile33.setIcon(pieces.get(player));
                 tile33.setDisabledIcon(pieces.get(player));
+                tile33.setEnabled(false);
                 break;     
         }
     }
@@ -464,13 +454,20 @@ public class TikTakForm extends javax.swing.JFrame {
                 p1_score_screen.setText(Integer.toString(p1Score));
             }
             else {
-                informationLabel.setText("I WIN >:)");
+                informationLabel.setText("YOU LOSE!");
                 p2Score++;
                 p2_score_screen.setText(Integer.toString(p2Score));
             }
             //disable board
             //change to win-cross.png
             return true;
+        }
+        
+        //check for a tie.
+        if (board[0][0] != '-' && board[0][1] != '-' && board[0][2] != '-' && 
+            board[1][0] != '-' && board[1][1] != '-' && board[1][2] != '-' && 
+            board[2][0] != '-' && board[2][1] != '-' && board[2][2] != '-'){
+            informationLabel.setText("TIE GAME!");
         }
         return false;
     }
@@ -513,22 +510,29 @@ public class TikTakForm extends javax.swing.JFrame {
         }
     }
     
-    
     //logic each button on the gameboard has.
     private void gameMove(int ID){
         if (player == 0){
             changeIcon(ID,0);
-        }
-        else if (player == 1){
-            changeIcon(ID, 1);
-        }
-        
-        updateBoard(ID);
-        win = checkWin();
-        
-        if (win == false){
-            nextPlayer();
-        }
+            updateBoard(ID);
+            win = checkWin();
+            
+            if (win == false){
+                nextPlayer();
+            }
+            
+            if (player == 1){
+                //now activate player 2.
+                ID = com.playTurn(board);
+                changeIcon(ID,1);
+                win = checkWin();
+                
+                if (win == false){
+                    nextPlayer();
+                }
+            }
+            checkWin();
+        }   
     }
     
     public static void main(String args[]) {
@@ -595,5 +599,5 @@ public class TikTakForm extends javax.swing.JFrame {
     ArrayList<Character> pieces = new ArrayList<Character>(Arrays.asList('X','O'));
     ImageIcon cross     = new javax.swing.ImageIcon(getClass().getResource("/tiktak/images/cross.png"));
     ImageIcon nought    = new javax.swing.ImageIcon(getClass().getResource("/tiktak/images/nought.png"));
-    ComputerPlayer com  = new ComputerPlayer(board);
+    ComputerPlayer com  = new ComputerPlayer(board, player);
 }
