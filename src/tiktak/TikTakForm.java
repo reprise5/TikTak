@@ -438,6 +438,7 @@ public class TikTakForm extends javax.swing.JFrame {
         }
     }
 
+    //Check to see if either player won when they placed their chip.
     private boolean checkWin(){
         if (board[0][0] == pieces.get(player) && board[1][0] == pieces.get(player) && board[2][0] == pieces.get(player) || //LEFT  COL
             board[0][1] == pieces.get(player) && board[1][1] == pieces.get(player) && board[2][1] == pieces.get(player) || //MIDL  COL
@@ -516,7 +517,10 @@ public class TikTakForm extends javax.swing.JFrame {
         }
     }
     
-    //logic each button on the gameboard has.
+    //old button press logic 
+    //I'm attempting to split this so that I can add a delay from main before playing
+    //computer's move.  this method will be removed, and replaced by playHuman(int ID); ,
+    //and playComputer(); .
     private void gameMove(int ID){
         if (player == 0){
             changeIcon(ID,0);
@@ -541,33 +545,41 @@ public class TikTakForm extends javax.swing.JFrame {
         }   
     }
     
-    public static void main(String args[]) {
-
-    try {
-        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            if ("Nimbus".equals(info.getName())) {
-                javax.swing.UIManager.setLookAndFeel(info.getClassName());
-             break;
+    //Human player playing their move
+    private void playHuman(int ID){
+        if (player == 0){
+            changeIcon(ID,0);
+            updateBoard(ID);
+            win = checkWin();
+            
+            if (win == false){
+                nextPlayer();
             }
+            checkTie();
         }
-    } catch (ClassNotFoundException ex) {
-        java.util.logging.Logger.getLogger(TikTakForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-        java.util.logging.Logger.getLogger(TikTakForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-        java.util.logging.Logger.getLogger(TikTakForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(TikTakForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+    
+    //computer player playing its move
+    public void playComputer(){
+        System.out.println("player " + (player + 1) + " is playing now.");
+        if (player == 1){
+            //now activate player 2.
+            int ID = com.playTurn(board);
+            changeIcon(ID,1);
+            win = checkWin();
 
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-        public void run() {
-            new TikTakForm().setVisible(true);
+            if (win == false){
+                nextPlayer();
+            }
+            checkTie();
         }
-    });
-  }
-
+    }
+    
+    //returns who's turn it is right now. 0=Human(X), 1=Computer(O)
+    public int getPlayer(){
+        return player;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel boardPanel;
     private javax.swing.JLabel informationLabel;
@@ -593,11 +605,11 @@ public class TikTakForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //GLOBALS
-    int player  = 0;                     //0=Human 1=COM
-    boolean win = false;                //whether or not somebody won.
-    int p1Score = 0;                    //player1's score
-    int p2Score = 0;                    //player 2's score
-    char[][] board = {                  //The Game Board as a multidim array.
+    private int player  = 0;                    //0=Human 1=COM
+    private boolean win = false;                //whether or not somebody won.
+    private int p1Score = 0;                    //player1's score
+    private int p2Score = 0;                    //player 2's score
+    private char[][] board = {                  //The Game Board as a multidim array.
         {'-','-','-'},
         {'-','-','-'},
         {'-','-','-'}

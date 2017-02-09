@@ -33,12 +33,12 @@ public class ComputerPlayer {
         System.out.println("this is computer Players copy of the board:");
         for (int b = 0; b < board.length; b++){
             System.out.println(board[b]);
-        }                                   //
+        }                                   //     MY WORD! WE'RE ABOUT TO CRASH, CAP!
     }                                       //              (  ) ((                             S  T  O  P
                                             //           ( )        ( )                         ---|##|---
     public int playTurn(char[][] board){    //                       ||\                           |##|
-        //brain.think();  <--SOO many crash.    [[  ]]_[[  ]]_[[  ]]<>|=\  CHOO CHOO ...AAAHHHHHHH |##|
-                                            //   O  O  O   O  O   O --O =>
+                                            //  [[  ]]_[[  ]]_[[  ]]<>|=\  CHOO CHOO ...AAAHHHH    |##|
+                                            //   O  O  O   O  O   O --O =>                         ####
         //Can I win?
         if(board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == '-'){      //LEFT COL 1
             board[2][0] = 'O';
@@ -87,7 +87,7 @@ public class ComputerPlayer {
                 ID = 4;
             }
             else if(board[1][0] == 'X' && board[2][0] == 'X' && board[0][0] == '-'){ //LEFT COL 3
-                board [0][0] = 'O';
+                board [0][0] = 'O';        
                 ID = 1;
             }
             else if(board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == '-'){ //MIDD COL 1
@@ -171,11 +171,8 @@ public class ComputerPlayer {
                 }
             }
         }
-        
         showBoard();
         System.out.println("Returning ID " + ID + ".");
         return ID;
-    }
-    
-    
+    }  
 }
