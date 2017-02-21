@@ -1,12 +1,12 @@
 # TikTak
 
-###Screenshot 
+##Screenshot 
 
 From Feb 3, 2017
 
 ![alt tag](https://github.com/reprise5/TikTak/blob/master/screenshot-TikTak.png)
 
-###TASKS:
+##TASKS:
 * ~~icons change with whoever's turn it is~~
 * ~~turns change over~~
 * ~~Buttons Have ID's (they know who they are)~~
@@ -30,3 +30,27 @@ From Feb 3, 2017
 * Oh yeah, and delete unused classes and code.  JEEZ.
 * Randomize Guess if there's no win/block to be made.  Makes player2 less predictable.  Or look ahead 2 turns.
 * other stuff too but it's 2am and I'm tired.
+
+
+##Combinations & Move possibilities (ComputerPlayer)
+
+###Winning Possibilities
+```
+ 
+L.col       MidCol      R.Col       RDiag
+ x--  	     -x-  		 --x	 	 x--
+ x--  	     -x-  	     --x 		 -x-
+ x--  	     -x-  	     --x		 --x
+[0][0]		[0][1]		[0][2]		[0][0]	
+[1][0]		[1][1]		[1][2]		[1][1]	
+[2][0]		[2][1]		[2][2]		[2][2]	
+
+TopRow      MidRow      BtmRow      LDiag
+ xxx		 ---		 ---		 --x
+ ---		 xxx	     ---	   	 -x-
+ ---		 ---	     xxx	   	 x--
+[0][0]		[1][0]		[2][0]		[0][2]
+[0][1]		[1][1]		[2][1]		[1][1]
+[0][2]		[1][2]		[2][2]		[2][0]
+```
+###Combos that Warrant a block (if X) or Win (if O)
