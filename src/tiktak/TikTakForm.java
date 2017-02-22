@@ -379,7 +379,7 @@ public class TikTakForm extends javax.swing.JFrame {
         }
     }
     
-    /*Pass player number, and Tile ID.
+    /**Pass player number, and Tile ID.
      *Player (either 1 or 2), which decides if it's a nought or cross, 
      *And ID is WHICH tile to change to a nought or cross. */
     private void changeIcon(int ID, int player){
@@ -437,8 +437,7 @@ public class TikTakForm extends javax.swing.JFrame {
                 break;     
         }
     }
-
-    //Check to see if either player won when they placed their chip.
+    //Check to see if either player won when they placed their chip
     private boolean checkWin(){
         if (board[0][0] == pieces.get(player) && board[1][0] == pieces.get(player) && board[2][0] == pieces.get(player) || //LEFT  COL
             board[0][1] == pieces.get(player) && board[1][1] == pieces.get(player) && board[2][1] == pieces.get(player) || //MIDL  COL

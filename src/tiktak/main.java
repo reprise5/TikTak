@@ -6,7 +6,12 @@ package tiktak;
  */
 public class main {
 
-    public static void main(String[] args) throws InterruptedException {
+    /**
+     *
+     * @param args
+     * @throws InterruptedException
+     */
+    public static void main(String[] args) throws InterruptedException{
         
         /* Set the look and feel */
         try {
@@ -24,7 +29,7 @@ public class main {
         TikTakForm game = new TikTakForm();
         game.setVisible(true);
         
-        /* keep track of the game */
+//        /* keep track of the game */
         do{
             if (game.getPlayer() == 1){
                 Thread.sleep(2500);
