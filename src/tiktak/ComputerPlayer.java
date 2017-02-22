@@ -40,7 +40,7 @@ public class ComputerPlayer {
                                             //  [[  ]]_[[  ]]_[[  ]]<>|=\  CHOO CHOO ...AAAHHHH    |##|
                                             //   O  O  O   O  O   O --O =>                       <<#### 
         //Can I win?   /==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/=<<####
-        if(board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == '-'){      //LEFT COL 
+        if(board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == '-'){      //LEFT COL 1
             board[2][0] = 'O';
             ID = 7;
         }
@@ -72,10 +72,35 @@ public class ComputerPlayer {
             board [1][2] = 'O';
             ID = 6;
         }
-        else if(board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == '-'){ //RIGT COL 3
+        else if(board[1][2] == 'O' && board[2][2] == 'O' && board[0][2] == '-'){ //RIGT COL 3
             board [2][2] = 'O';
             ID = 3;
         }
+        else if(board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == '-'){ //TOP  ROW 1
+            board [2][2] = 'O';
+            ID = 3;
+        }
+        else if(board[0][0] == 'O' && board[0][2] == 'O' && board[0][1] == '-'){ //TOP  ROW 2
+            board [2][2] = 'O';
+            ID = 3;
+        }
+        else if(board[0][1] == 'O' && board[0][2] == 'O' && board[0][0] == '-'){ //TOP  ROW 3
+            board [2][2] = 'O';
+            ID = 3;
+        }
+        else if(board[1][2] == 'O' && board[2][2] == 'O' && board[0][2] == '-'){ //
+            board [2][2] = 'O';
+            ID = 3;
+        }
+        else if(board[1][2] == 'O' && board[2][2] == 'O' && board[0][2] == '-'){ //
+            board [2][2] = 'O';
+            ID = 3;
+        }
+        else if(board[1][2] == 'O' && board[2][2] == 'O' && board[0][2] == '-'){ //
+            board [2][2] = 'O';
+            ID = 3;
+        }
+        
         else{
             //Should I block?
             if(board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == '-'){      //LEFT COL 1
@@ -209,7 +234,7 @@ public class ComputerPlayer {
         return ID;
     }
     private int rollDice(){
-        int number = 0;
+        int number;
         //there are 9 possibilities for a move.
         number = randomGenerator.nextInt(8);
         return number;
