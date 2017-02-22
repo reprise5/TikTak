@@ -88,15 +88,15 @@ public class ComputerPlayer {
             board [2][2] = 'O';
             ID = 3;
         }
-        else if(board[1][2] == 'O' && board[2][2] == 'O' && board[0][2] == '-'){ //
+        else if(board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == '-'){ //MIDL ROW 1
             board [2][2] = 'O';
             ID = 3;
         }
-        else if(board[1][2] == 'O' && board[2][2] == 'O' && board[0][2] == '-'){ //
+        else if(board[1][0] == 'O' && board[1][2] == 'O' && board[1][1] == '-'){ //MIDL ROW 2
             board [2][2] = 'O';
             ID = 3;
         }
-        else if(board[1][2] == 'O' && board[2][2] == 'O' && board[0][2] == '-'){ //
+        else if(board[1][2] == 'O' && board[2][2] == 'O' && board[1][0] == '-'){ //MIDL ROW 3
             board [2][2] = 'O';
             ID = 3;
         }
@@ -177,55 +177,79 @@ public class ComputerPlayer {
                 ID = 7;
             }
             else {
-                //while false,
-                    //pick random number
-                    //put it through case
-                        //can I move, True or False
-                    //make that move
-                //If true, loop again.
                 
-                /* SOO */
-
-//                while(!done){
-//                    randomNum = rollDice();
-//                    switch(randomNum){
-//                        case 0:
-//                            //make move 1
-//                            if(board[0][0] == '-'){
-//                                board[0][0] = 'O';
-//                                ID = 5;
-//                                done = true;
-//                            }
-//                            break;
-//                        case 1:
-//                            //make move 
-//                            break;
-//                    } 
-//                }                         << working on it.  :3
-                
-            //v v v v v v OLD CODE v v v v v v v v v v v OLD CODE v v v v v v v 
-                if(board[0][0] == '-'){
-                    board[0][0] = 'O';
-                    ID = 1;  
-                }
-                else if(board[1][1] == '-'){
-                    board[1][1] = 'O';
-                    ID = 5;
-                }
-                else if(board[0][2] == '-'){
-                    board[0][2] = 'O';
-                    ID = 3;
-                }
-                else if(board[2][1] == '-'){
-                    board[2][1] = 'O';
-                    ID = 8;
-                }
-                else if(board[1][0] == '-'){
-                    board[1][0] = 'O';
-                    ID = 4;
-                }
-                
-                
+                //PLAY A RANDOM MOVE (based on a roll of a dice)
+                done = false;
+                while(!done){
+                    randomNum = rollDice();
+                    System.out.println("DICE ROLL: " + randomNum);
+                    
+                    switch(randomNum){
+                        case 0:
+                            if(board[0][0] == '-'){
+                                board[0][0] = 'O';
+                                ID = 1;
+                                done = true;
+                            }
+                            break;
+                        case 1:
+                            if(board[0][1] == '-'){
+                                board[0][1] = 'O';
+                                ID = 2;
+                                done = true;
+                            }
+                            break;
+                        case 2:
+                            if(board[0][2] == '-'){
+                                board[0][2] = 'O';
+                                ID = 3;
+                                done = true;
+                            }
+                            break;
+                        case 3:
+                            if(board[1][0] == '-'){
+                                board[1][0] = 'O';
+                                ID = 4;
+                                done = true;
+                            }
+                            break;
+                        case 4:
+                            if(board[1][1] == '-'){
+                                board[1][1] = 'O';
+                                ID = 5;
+                                done = true;
+                            }
+                            break;
+                        case 5:
+                            if(board[1][2] == '-'){
+                                board[1][2] = 'O';
+                                ID = 6;
+                                done = true;
+                            }
+                            break;
+                        case 6:
+                            if(board[2][0] == '-'){
+                                board[2][0] = 'O';
+                                ID = 7;
+                                done = true;
+                            }
+                            break;
+                        case 7:
+                            if(board[2][1] == '-'){
+                                board[2][1] = 'O';
+                                ID = 8;
+                                done = true;
+                            }
+                            break;
+                        case 8:
+                            if(board[2][2] == '-'){
+                                board[2][2] = 'O';
+                                ID = 9;
+                                done = true;
+                            }
+                            break;
+                    } 
+                } 
             }
         }
         

@@ -459,7 +459,7 @@ public class TikTakForm extends javax.swing.JFrame {
     }
     
     //check for a tie game.
-    private boolean checkTie(){
+    public boolean checkTie(){
         boolean tie = false;
                 
         if (board[0][0] != '-' && board[0][1] != '-' && board[0][2] != '-' && 
@@ -519,21 +519,23 @@ public class TikTakForm extends javax.swing.JFrame {
             updateBoard(ID);
             win = checkWin();
             
+            checkTie();
+            
             if (win == false){
                 nextPlayer();
             }
             
-            if (player == 1){
-                //now activate player 2.
-                ID = com.playTurn(board);
-                changeIcon(ID,1);
-                win = checkWin();
-                
-                if (win == false){
-                    nextPlayer();
-                }
-            }
-            checkTie();
+//            if (player == 1){
+//                //now activate player 2.
+//                ID = com.playTurn(board);
+//                changeIcon(ID,1);
+//                win = checkWin();
+//                
+//                if (win == false){
+//                    nextPlayer();
+//                }
+//            }
+//            checkTie();
         }   
     }
     
@@ -573,7 +575,16 @@ public class TikTakForm extends javax.swing.JFrame {
     }
     
     public int isClosing(){
-        return 1;
+        int closing = 0;
+        
+        if (closing == 0){
+            closing = 1;
+        }
+        else{
+            System.out.println("Already invoked.");
+            closing = -1;
+        }
+        return closing;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -601,6 +612,7 @@ public class TikTakForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     //GLOBALS
+    int closing = 0;
     private int player  = 0;                    //0=Human 1=COM
     private boolean win = false;                //whether or not somebody won.
     private int p1Score = 0;                    //player1's score
