@@ -21,14 +21,15 @@ From Feb 3, 2017
   * ~~If opponent has a winning move, block it.~~
   * if this move creates fork after move, it's important. (2 possibilities for winning)
   * block opponent forks
+  * Finish remaining move possibilities for computerPlayer
   * count possibilities for winning for each possibility. move with highest score is the next move
   * ~~make move in array.  it keeps track internally.~~
   * ~~get button ID for desired move, and run changeIcon(); and nextPlayer();~~
 * Create Database.
 * Get Post button to connect to the database.
-* Finish Player 2 delay.  (Getting there)
-* Oh yeah, and delete unused classes and code.  JEEZ.
-* Randomize Guess if there's no win/block to be made.  Makes player2 less predictable.  Or look ahead 2 turns.
+* ~~Finish Player 2 delay.  (Getting there)~~
+* ~~Oh yeah, and delete unused classes and code.  JEEZ.~~
+* ~~Randomize Guess if there's no win/block to be made.  Makes player2 less predictable.  Or look ahead 2 turns.~~
 * other stuff too but it's 2am and I'm tired.
 
 
@@ -96,3 +97,4 @@ BtmRow2     TopRow3     MidRow3     BtmRow3
 ```
 ###Forks
 ```                ```
+
