@@ -1,12 +1,12 @@
 # TikTak
 
-##Screenshot 
+## Screenshot 
 
 From Feb 3, 2017
 
 ![alt tag](https://github.com/reprise5/TikTak/blob/master/screenshot-TikTak.png)
 
-##TASKS:
+## TASKS:
 * ~~icons change with whoever's turn it is~~
 * ~~turns change over~~
 * ~~Buttons Have ID's (they know who they are)~~
@@ -33,9 +33,9 @@ From Feb 3, 2017
 * other stuff too but it's 2am and I'm tired.
 
 
-##Combinations & Move possibilities (ComputerPlayer)
+## Combinations & Move possibilities (ComputerPlayer)
 
-###Winning Possibilities
+### Winning Possibilities
 ```
 L.col       MidCol      R.Col       RDiag
  x--  	     -x-  		 --x	 	 x--
@@ -53,7 +53,7 @@ TopRow      MidRow      BtmRow      LDiag
 [0][1]		[1][1]		[2][1]		[1][1]
 [0][2]		[1][2]		[2][2]		[2][0]
 ```
-###Combos that Warrant a block (if X) or Win (if O)
+### Combos that Warrant a block (if X) or Win (if O)
 ```
 LCol1       MidCol1     RCol1       RDiag1      LDiag1
  x--  		 -x-  		 --x		 x--		 --x
@@ -95,6 +95,6 @@ BtmRow2     TopRow3     MidRow3     BtmRow3
 [2][1]		[0][1]		[1][1]		[2][1]
 [2][2]		[0][2]		[1][2]		[2][2]
 ```
-###Forks
+### Forks
 ```                ```
 
